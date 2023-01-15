@@ -1,0 +1,58 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String    @id @default(auto()) @map("_id") @db.ObjectId
+  email         String    @unique
+  firstName     String
+  lastName      String
+  password      String
+  isAdmin       Boolean   @default(false)
+  avatarUrl     String    @default("https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y")
+  posts         Post[]
+  comment       Comment[]
+  like          Likes[]
+}
+
+model Post {
+  id            String    @id @default(auto()) @map("_id") @db.ObjectId
+  title         String
+  content       String    @default("")
+  imageUrl      String    @default("")
+  createdAt     DateTime  @default(now())
+  updateAt      DateTime  @updatedAt
+  author        User      @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  authorId      String    @db.ObjectId
+  comments      Comment[]
+  like          Likes[]
+}
+
+model Comment {
+  id            String    @id @default(auto()) @map("_id") @db.ObjectId
+  post          Post      @relation(fields: [postId], references: [id], onDelete: Cascade)
+  postId        String    @db.ObjectId
+  author        User      @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  authorId      String    @db.ObjectId
+  comment       String
+  createdAt     DateTime  @default(now())
+  updateAt      DateTime  @updatedAt
+}
+
+model Likes {
+  id            String    @id @default(auto()) @map("_id") @db.ObjectId
+  post          Post      @relation(fields: [postId], references: [id], onDelete: Cascade)
+  postId        String    @db.ObjectId
+  author        User      @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  authorId      String    @db.ObjectId
+  like          Int       @default(0)
+  @@unique([postId, authorId])
+}

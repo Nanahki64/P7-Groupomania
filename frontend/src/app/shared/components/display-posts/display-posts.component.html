@@ -1,0 +1,38 @@
+<div class="body">
+    <div class="post-card">
+        <div class="head-post">
+            <h1>{{ post.author.firstName }}, {{ post.author.lastName }}</h1>
+            <div *ngIf="isAdminOrAuthor">
+                <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                    <mat-icon>more_horiz</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu">
+                    <button mat-menu-item (click)="onOpenDialogClickModify()">
+                        <mat-icon>edit</mat-icon>
+                        <span>Modifier</span>
+                    </button>
+                    <button mat-menu-item (click)="deletPost()">
+                        <mat-icon>delete</mat-icon>
+                        <span>Supprimer</span>
+                    </button>
+                </mat-menu>
+            </div>
+        </div>
+        <p class="post-date">{{ post.createdAt | date:'mediumDate' }}</p>
+        <div class="post-content">
+            <p>{{ post.content }}</p>
+        </div>
+        <div class="box" *ngIf="post.imageUrl != ''">
+            <img src={{post.imageUrl}} alt="image">
+        </div>
+        <h2>{{ post.title }}</h2>
+        <div class="action-button">
+            <button [ngClass]="isLiked == true ? 'col-green' : ''" mat-raised-button color="warn" type="button" (click)="postLike()" class="like-button">
+                <mat-icon class="icon-size">thumb_up</mat-icon> {{ postlikes }}
+            </button>
+            <button mat-raised-button color="warn" type="button" (click)="onOpenDialogClickComment()">
+                <mat-icon class="icon-size">comment</mat-icon> {{ postComment }}
+            </button>
+        </div>
+    </div>
+</div>

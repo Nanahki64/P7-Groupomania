@@ -1,0 +1,71 @@
+.body {
+    display: flex;
+    justify-content: center;
+}
+.post-card {
+    display: flex;
+    flex-flow: column nowrap;
+    min-width: 29%;
+    max-width: 29%;
+    height: 1%;
+    border-radius: 10px;
+    padding: 1em;
+    background-color: rgba(78, 81, 102, 0.08);
+    border-bottom: 1px solid #4E5166;
+    box-shadow: 10px 2px 30px #4E5166;
+    margin: 2em 0 1em 0;
+}
+.head-post {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.post-date {
+    margin: 0 0 2em 0;
+}
+.post-content {
+    margin-bottom: 1em;
+}
+.box {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 60%;
+}
+.box img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 10px;
+}
+.action-button {
+    display: flex;
+    justify-content: flex-end;
+}
+.like-button {
+    margin-right: 1em;
+}
+.col-green {
+    background-color: green;
+}
+.icon-size {
+    margin-top: 15%;
+    font-size: 1.2em;
+}
+
+@media screen and (max-width: 1800px) {
+    .post-card {
+        min-width: 504px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .post-card {
+        min-width: 346px;
+    }
+}
+
+@media screen and (max-width: 390px) {
+    .post-card {
+        min-width: 281px;
+    }
+}

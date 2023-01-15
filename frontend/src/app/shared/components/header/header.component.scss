@@ -1,0 +1,23 @@
+.header {
+    overflow: hidden;
+    background-color: white;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    width: 100%;
+    border-bottom: 1px solid #4E5166;
+    box-shadow: 10px 2px 30px #4E5166;
+}
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.crop-logo {
+    margin: 1em;
+    width: 12%;
+    cursor: pointer;
+}
+.logout-button {
+    margin: 1em;
+}

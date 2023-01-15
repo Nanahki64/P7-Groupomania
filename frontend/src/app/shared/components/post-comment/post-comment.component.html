@@ -1,0 +1,41 @@
+<div class="comment-container">
+
+  <div class="form-container">
+    
+    <h3 class="form-card-title">Commentaires</h3>
+
+    <form [formGroup]="commentForm" (ngSubmit)="onSubmit()">
+      
+      <div class="form-field">
+        <mat-form-field appearance="fill" matNativeControl>
+          <input matInput type="text" formControlName="comment" class="form-control auth-control" id="comment" placeholder="Commenter">
+          <mat-error *ngIf="submitted">
+            <p *ngIf="this.commentForm.controls['comment'].hasError('required')">{{ error }}</p>
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="action-button">
+        <button mat-raised-button color="warn" type="submit">Publier</button>
+      </div>
+      
+    </form>
+    
+  </div>
+
+  <div *ngFor="let comment of comments" class="comments">
+    <div *ngIf="comment['authorId'] == userId || role == true" class="delete-comment">
+      <button class="delete-comment-button" (click)="deleteComment(comment['authorId'], comment['id'])">
+        <mat-icon>clear</mat-icon>
+      </button>
+    </div>
+    <div class="author-created">
+      <p><strong>{{ comment['author']['firstName'] }}, {{ comment['author']['lastName'] }}</strong></p>
+      <p>{{ comment['createdAt'] | date:'mediumDate' }}</p>
+    </div>
+    <div>
+      <p>{{ comment['comment'] }}</p>
+    </div>
+  </div>
+  
+</div>
