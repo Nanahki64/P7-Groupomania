@@ -1,4 +1,4 @@
-# P7-Groupomania
+# P7-Groupomania (dernière version - BDD libre de choix).
 
 ###### Étape 1 - Cloner le repo :
 ```
