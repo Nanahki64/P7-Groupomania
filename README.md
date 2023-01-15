@@ -20,7 +20,9 @@ npm install
 
 ###### Étape 3 - backend/.env :
 
+```
 Renommer le fichier .env.template en .env et remplacer les clefs par celle fournis dans le fichier zip (DATABASE_URL & JWT_SECRET_KEY).
+```
 
 ###### Étape 4 - démarrer le projet :
 
