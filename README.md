@@ -21,7 +21,7 @@ npm install
 ###### Étape 3 - backend/.env :
 
 ```
-Renommer le fichier .env.template en .env et remplacer les clefs par celle fournis dans le fichier zip (DATABASE_URL & JWT_SECRET_KEY).
+Remplacer le fichier .env.template par le fichier .env fourni dans le fichier zip.
 ```
 
 ###### Étape 4 - Prisma client :
@@ -38,4 +38,20 @@ node server
 
 frontend
 ng serve
+
+Visualisation des données
+npx prisma studio
+```
+
+###### Repos initiaux :
+
+```
+Ce repo à été créé à partir des deux repos séparé de base
+P7-OC-Back et P7-OC-Front.
+
+Le versionnage complet du projet est sur les repos suivants :
+
+Back : https://github.com/Nanahki64/P7-OC-Back
+
+Front : https://github.com/Nanahki64/P7-OC-Front
 ```
