@@ -24,7 +24,13 @@ npm install
 Renommer le fichier .env.template en .env et remplacer les clefs par celle fournis dans le fichier zip (DATABASE_URL & JWT_SECRET_KEY).
 ```
 
-###### Étape 4 - démarrer le projet :
+###### Étape 4 - Prisma client :
+
+```
+npx prisma generate
+```
+
+###### Étape 5 - démarrer le projet :
 
 ```
 backend
